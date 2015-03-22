@@ -41,6 +41,8 @@
         android:layout_alignBottom="@+id/buttonrech"
         android:layout_alignRight="@+id/buttontravel"
         android:layout_alignEnd="@+id/buttontravel"
-        android:text="Inserte saldo" />
+        android:hint="Inserte saldo"
+        android:visibility="visible"
+        android:textIsSelectable="false" />
 
 </RelativeLayout>
