@@ -17,17 +17,29 @@
         android:layout_height="wrap_content"
         android:text="Recargar"
         android:id="@+id/buttonrech"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_marginTop="64dp"
+        android:layout_below="@+id/buttontravel"
+        android:layout_toRightOf="@+id/buttontravel"
+        android:layout_toEndOf="@+id/buttontravel" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Viaje"
         android:id="@+id/buttontravel"
-        android:layout_alignTop="@+id/buttonrech"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_below="@+id/saldo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:layout_alignBottom="@+id/buttonrech"
+        android:layout_alignRight="@+id/buttontravel"
+        android:layout_alignEnd="@+id/buttontravel"
+        android:text="Inserte saldo" />
 
 </RelativeLayout>

@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 
@@ -19,7 +20,27 @@ public class MainActivity extends ActionBarActivity {
        final TextView saldo = (TextView)findViewById(R.id.saldo);
        saldo.setText(String.valueOf(0));
        final Button recargar = (Button) findViewById(R.id.buttonrech);
-       final Button viajar = (Button) findViewById(R.id.buttontravel);
+       recargar.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View clickeadoBotonRecarga) {
+
+               //Recuperar saldo transformando el campo en números
+               String saldoText = saldo.getText().toString();
+               double saldoNumeros = Double.parseDouble(saldoText);
+               //Coger el campo del saldo
+               final EditText recargo = (EditText) findViewById(R.id.editText);
+               String recargoText = recargo.getText().toString();
+               double recargoNumero = Double.parseDouble(recargoText);
+               //Sumarle el recargo
+               double saldoTotal = saldoNumeros + recargoNumero;
+               //Mostrar saldo total
+               saldo.setText(String.valueOf(saldoTotal));
+           }
+       });
+
+
+
+        final Button viajar = (Button) findViewById(R.id.buttontravel);
             viajar.setOnClickListener(new View.OnClickListener (){
             @Override
             public void onClick(View elementoClikeado) {
