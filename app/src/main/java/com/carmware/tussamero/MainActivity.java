@@ -56,7 +56,21 @@ public class MainActivity extends ActionBarActivity {
 
             }
         });
+
+ //BOTÓN DE PRUEBA PARA PASAR DE ACTIVITY
+        final Button prueba = (Button) findViewById(R.id.nueva);
+            prueba.setOnClickListener(new View.OnClickListener (){
+            @Override
+            public void onClick(View elementoClikeado) {
+
+            //Ir al nuevo activity
+                
+
+            }
+        });
     }
+
+
 
 
     @Override
