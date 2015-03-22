@@ -12,47 +12,47 @@ import android.widget.TextView;
 
 public class MainActivity extends ActionBarActivity {
 
+    private double total = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+//Campo saldo
        final TextView saldo = (TextView)findViewById(R.id.saldo);
        saldo.setText(String.valueOf(0));
+       saldo.setText(String.format("%.2f", total));
+
+
+//Botón recargar
        final Button recargar = (Button) findViewById(R.id.buttonrech);
        recargar.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View clickeadoBotonRecarga) {
 
-               //Recuperar saldo transformando el campo en números
-               String saldoText = saldo.getText().toString();
-               double saldoNumeros = Double.parseDouble(saldoText);
                //Coger el campo del saldo
                final EditText recargo = (EditText) findViewById(R.id.editText);
                String recargoText = recargo.getText().toString();
                double recargoNumero = Double.parseDouble(recargoText);
                //Sumarle el recargo
-               double saldoTotal = saldoNumeros + recargoNumero;
+               total = total + recargoNumero;
                //Mostrar saldo total
-               saldo.setText(String.valueOf(saldoTotal));
+               saldo.setText(String.format("%.2f", total));
            }
        });
 
 
-
+//Botón viaje
         final Button viajar = (Button) findViewById(R.id.buttontravel);
             viajar.setOnClickListener(new View.OnClickListener (){
             @Override
             public void onClick(View elementoClikeado) {
 
-          //Recuperar saldo transformando el campo en números
-                String saldoText = saldo.getText().toString();
-                double saldoNumeros = Double.parseDouble(saldoText);
           //Restar viaje
-                double cuenta = saldoNumeros - 0.70;
+                total = total - 0.70;
           //Pintar saldo total.
-                saldo.setText(String.valueOf(cuenta));
-
+                saldo.setText(String.format("%.2f",total));
 
             }
         });
