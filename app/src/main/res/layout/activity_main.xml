@@ -10,7 +10,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="151dp"
-        android:id="@+id/textView" />
+        android:id="@+id/saldo" />
 
     <Button
         android:layout_width="wrap_content"
