@@ -1,5 +1,6 @@
 package com.carmware.tussamero;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,7 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements View.OnClickListener {
 
     private double total = 0;
 
@@ -59,15 +60,7 @@ public class MainActivity extends ActionBarActivity {
 
  //BOTÓN DE PRUEBA PARA PASAR DE ACTIVITY
         final Button prueba = (Button) findViewById(R.id.nueva);
-            prueba.setOnClickListener(new View.OnClickListener (){
-            @Override
-            public void onClick(View elementoClikeado) {
-
-            //Ir al nuevo activity
-                
-
-            }
-        });
+            prueba.setOnClickListener(this);
     }
 
 
@@ -93,5 +86,13 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.nueva) {
+            Intent act = new Intent(this, RecargoActivity.class);
+            startActivity(act);
+        }
     }
 }
