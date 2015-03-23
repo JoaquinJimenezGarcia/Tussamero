@@ -89,7 +89,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     }
 
     @Override
-    public void onClick(View v) {
+         public void onClick(View v) {
         if (v.getId() == R.id.nueva) {
             Intent act = new Intent(this, RecargoActivity.class);
             startActivity(act);

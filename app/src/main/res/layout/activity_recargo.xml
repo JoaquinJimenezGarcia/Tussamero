@@ -8,24 +8,73 @@
     android:background="@drawable/ic_launcher">
 
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/recargo"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:hint="Inserte saldo" />
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Recargar"
-        android:id="@+id/b.recargo"
-        android:layout_below="@+id/recargo"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="65dp" />
+        android:text="Volver"
+        android:id="@+id/volver"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Desarrollador:"
+        android:id="@+id/desarrollador"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="42dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Versión:"
+        android:id="@+id/version"
+        android:layout_below="@+id/desarrollador"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Descripción:"
+        android:id="@+id/descripcion"
+        android:layout_below="@+id/version"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/t.desarrollador"
+        android:layout_above="@+id/version"
+        android:layout_toRightOf="@+id/desarrollador"
+        android:layout_toEndOf="@+id/desarrollador" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/t.version"
+        android:layout_above="@+id/descripcion"
+        android:layout_toRightOf="@+id/version"
+        android:layout_toEndOf="@+id/version" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/t.descripcion"
+        android:layout_below="@+id/t.version"
+        android:layout_toRightOf="@+id/descripcion"
+        android:layout_toEndOf="@+id/descripcion" />
 
 </RelativeLayout>

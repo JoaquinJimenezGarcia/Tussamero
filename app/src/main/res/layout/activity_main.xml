@@ -48,7 +48,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ventana nueva"
+        android:text="Sobre nosotros"
         android:id="@+id/nueva"
         android:layout_below="@+id/buttonrech"
         android:layout_centerHorizontal="true"
