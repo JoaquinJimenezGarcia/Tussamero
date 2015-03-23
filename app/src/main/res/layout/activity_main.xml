@@ -50,9 +50,8 @@
         android:layout_height="wrap_content"
         android:text="Sobre nosotros"
         android:id="@+id/nueva"
-        android:layout_below="@+id/buttonrech"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="39dp"
-        android:onClick="pasarRecargoActivity"/>
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

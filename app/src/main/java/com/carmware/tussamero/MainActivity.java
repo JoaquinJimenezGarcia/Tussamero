@@ -1,7 +1,7 @@
 package com.carmware.tussamero;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 
-public class MainActivity extends ActionBarActivity implements View.OnClickListener {
+public class MainActivity extends Activity implements View.OnClickListener {
 
     private double total = 0;
 

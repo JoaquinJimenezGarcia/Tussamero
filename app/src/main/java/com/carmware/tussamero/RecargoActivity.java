@@ -29,7 +29,7 @@ public class RecargoActivity extends Activity {
             });
 
         final TextView desarrollador = (TextView) findViewById(R.id.t_desarrollador);
-            desarrollador.setText("Joaquín Jiménez García");
+            desarrollador.setText("Joaquín Jiménez");
         final TextView version = (TextView) findViewById(R.id.t_version);
             version.setText("1.0.0");
         final TextView descripcion = (TextView) findViewById(R.id.t_descripcion);

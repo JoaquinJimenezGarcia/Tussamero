@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:text="Volver"
         android:id="@+id/volver"
-        android:layout_centerVertical="true"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
     <TextView
