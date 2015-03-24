@@ -48,7 +48,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sobre nosotros"
+        android:text="Acerca de"
         android:id="@+id/nueva"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
