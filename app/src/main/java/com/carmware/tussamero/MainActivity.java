@@ -20,6 +20,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+//Campo de escritura
+       final EditText insertar = (EditText) findViewById(R.id.editText);
 //Campo saldo
        final TextView saldo = (TextView)findViewById(R.id.saldo);
        saldo.setText(String.valueOf(0));
@@ -40,6 +42,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                total = total + recargoNumero;
                //Mostrar saldo total
                saldo.setText(String.format("%.2f", total));
+               //Volver el campo del saldo a original
+               insertar.setText("");
+               insertar.setHint("Insertar Saldo");
            }
        });
 
