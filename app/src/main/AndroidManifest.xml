@@ -20,6 +20,9 @@
             android:name=".RecargoActivity"
             android:label="@string/title_activity_recargo" >
         </activity>
+        <provider
+            android:authorities="net.saldoprovider/datos"
+            android:name=".datos.SaldoProvider"/>
     </application>
 
 </manifest>
