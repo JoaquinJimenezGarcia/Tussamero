@@ -5,6 +5,10 @@ import android.content.Intent;
 import android.app.Activity;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.content.CursorLoader;
+import android.support.v4.content.Loader;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,10 +20,11 @@ import com.carmware.tussamero.datos.SaldoProvider;
 import com.carmware.tussamero.datos.SaldoSQL;
 
 
-public class MainActivity extends Activity implements View.OnClickListener {
-
+public class MainActivity extends FragmentActivity implements View.OnClickListener, LoaderManager.LoaderCallbacks<Cursor> {
+    public static final int LOADER_SALDO = 1;
     public static final double PRECIO_VIAJE = 0.70;
     private Double saldobd;
+    private TextView saldoTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,15 +34,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
 //Campo de escritura
         final EditText insertar = (EditText) findViewById(R.id.editText);
 //Campo saldo
-        final TextView saldo = (TextView) findViewById(R.id.saldo);
-        saldobd = consultarSaldo();
-        if (saldobd!= null) {
-            //si hay uno lo sacamos
-            saldo.setText(String.format("%.2f", saldobd));
-        } else {
-            //si no hay ninguno, locreamos y a 0
-            saldo.setText(String.valueOf(0));
-        }
+        getSupportLoaderManager().initLoader(LOADER_SALDO, null, this);
+        saldoTextView = (TextView) findViewById(R.id.saldo);
 
 //Botón recargar
         final Button recargar = (Button) findViewById(R.id.buttonrech);
@@ -54,7 +52,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 //Sumarle el recargo
                 saldobd = saldobd + recargoNumero;
                 //Mostrar saldo total
-                saldo.setText(String.format("%.2f", saldobd));
+                saldoTextView.setText(String.format("%.2f", saldobd));
                 //Volver el campo del saldo a original
                 insertar.setText("");
                 insertar.setHint("Insertar Saldo");
@@ -72,7 +70,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 //Restar viaje
                 saldobd = saldobd - PRECIO_VIAJE;
                 //Pintar saldo total.
-                saldo.setText(String.format("%.2f", saldobd));
+                saldoTextView.setText(String.format("%.2f", saldobd));
 
             }
         });
@@ -113,32 +111,43 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }
     }
 
-    private Double consultarSaldo() {
-        Cursor cursorsaldo = getContentResolver().query(SaldoProvider.SALDOS_URI,
-                new String[]{SaldoSQL.CAMPO_SALDO},
-                null, null, null);
-
-        if (cursorsaldo.moveToFirst()) {
-            return cursorsaldo.getDouble(0);
-        } else {
-            return null;
-        }
-    }
-
     public void updateSaldo(double diferencia) {
-        Double saldobd = consultarSaldo();
 
-        if (saldobd!=null){
-            ContentValues values =  new ContentValues();
-            values.put(SaldoSQL.CAMPO_SALDO,saldobd+diferencia);
+        if (saldobd != null) {
+            ContentValues values = new ContentValues();
+            values.put(SaldoSQL.CAMPO_SALDO, saldobd + diferencia);
             getContentResolver().update(SaldoProvider.SALDOS_URI,
-                    values, null, null );
-        }else{
-            ContentValues values =  new ContentValues();
-            values.put(SaldoSQL.CAMPO_SALDO,diferencia);
+                    values, null, null);
+        } else {
+            ContentValues values = new ContentValues();
+            values.put(SaldoSQL.CAMPO_SALDO, diferencia);
             getContentResolver().insert(SaldoProvider.SALDOS_URI,
                     values);
         }
 
+    }
+
+    @Override
+    public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
+        return new CursorLoader(this, SaldoProvider.SALDOS_URI,
+                new String[]{SaldoSQL.CAMPO_SALDO},
+                null, null, null);
+    }
+
+    @Override
+    public void onLoadFinished(Loader<Cursor> cursorLoader, Cursor cursorsaldo) {
+
+        if (cursorsaldo.moveToFirst()) {
+            saldobd = cursorsaldo.getDouble(0);
+            saldoTextView.setText(String.format("%.2f", saldobd));
+        } else {
+            saldobd = 0.0;
+            saldoTextView.setText(String.valueOf(0));
+        }
+    }
+
+    @Override
+    public void onLoaderReset(Loader<Cursor> cursorLoader) {
+        saldobd = 0.0;
     }
 }
