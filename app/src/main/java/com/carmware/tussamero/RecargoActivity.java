@@ -21,15 +21,6 @@ public class RecargoActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recargo);
 
-        final Button volver = (Button) findViewById(R.id.volver);
-            volver.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(RecargoActivity.this, MainActivity.class);
-                    startActivity(intent);
-                }
-            });
-
         final TextView desarrollador = (TextView) findViewById(R.id.t_desarrollador);
             desarrollador.setText("Joaquín Jiménez");
         final TextView version = (TextView) findViewById(R.id.t_version);
