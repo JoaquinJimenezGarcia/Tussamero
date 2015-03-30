@@ -8,16 +8,21 @@ import android.database.sqlite.SQLiteOpenHelper;
  * Created by Juaki on 24/03/2015.
  */
 public class SaldoSQL extends SQLiteOpenHelper {
+    private static final int VERSION = 1;
+    private static final String NOMBREDB = "saldo.db";
+
+    public static final String TABLE_SALDO = "saldo";
+    public static final String CAMPO_SALDO = "saldo";
 
     //Sentencia SQL para crear la tabla de Clientes
-    String sqlCreate = "CREATE TABLE Saldo " +
-            "(_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-            " saldo TEXT) " ;
-    public SaldoSQL (Context contexto, String nombre,
-                                SQLiteDatabase.CursorFactory factory, int version) {
+    String sqlCreate = "CREATE TABLE " +TABLE_SALDO+
+            " (_id INTEGER PRIMARY KEY AUTOINCREMENT, "+CAMPO_SALDO+" DOUBLE) ";
 
-        super(contexto, nombre, factory, version);
+    public SaldoSQL(Context contexto) {
+
+        super(contexto, NOMBREDB, null, VERSION);
     }
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(sqlCreate);
@@ -25,6 +30,6 @@ public class SaldoSQL extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        db.execSQL("drop table if exits "+TABLE_SALDO);
     }
 }
