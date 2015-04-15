@@ -19,7 +19,8 @@
         </activity>
         <activity
             android:name=".RecargoActivity"
-            android:label="@string/title_activity_recargo" >
+            android:label="@string/title_activity_recargo"
+            android:screenOrientation="portrait">
         </activity>
         <provider
             android:authorities="com.carmware.tussamero"
