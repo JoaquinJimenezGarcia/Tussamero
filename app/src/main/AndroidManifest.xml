@@ -22,9 +22,6 @@
             android:label="@string/title_activity_recargo"
             android:screenOrientation="portrait">
         </activity>
-        <provider
-            android:authorities="com.carmware.tussamero"
-            android:name=".datos.SaldoProvider"/>
     </application>
 
 </manifest>

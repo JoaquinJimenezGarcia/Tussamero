@@ -28,17 +28,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Recargar"
-        android:id="@+id/buttonrech"
+        android:id="@+id/bRecarga"
         android:layout_marginTop="64dp"
-        android:layout_below="@+id/buttontravel"
-        android:layout_toRightOf="@+id/buttontravel"
-        android:layout_toEndOf="@+id/buttontravel" />
+        android:layout_below="@+id/bViaje"
+        android:layout_toRightOf="@+id/bViaje"
+        android:layout_toEndOf="@+id/bViaje" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Viaje"
-        android:id="@+id/buttontravel"
+        android:id="@+id/bViaje"
         android:layout_below="@+id/saldo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp" />
@@ -49,9 +49,9 @@
         android:inputType="numberDecimal"
         android:ems="10"
         android:id="@+id/editText"
-        android:layout_alignBottom="@+id/buttonrech"
-        android:layout_alignRight="@+id/buttontravel"
-        android:layout_alignEnd="@+id/buttontravel"
+        android:layout_alignBottom="@+id/bRecarga"
+        android:layout_alignRight="@+id/bViaje"
+        android:layout_alignEnd="@+id/bViaje"
         android:hint="Inserte saldo"
         android:visibility="visible"
         android:textIsSelectable="false" />
@@ -60,7 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Acerca de"
-        android:id="@+id/nueva"
+        android:id="@+id/bInfo"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
