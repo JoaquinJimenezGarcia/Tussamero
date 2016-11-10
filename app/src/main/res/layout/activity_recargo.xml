@@ -4,7 +4,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.carmware.tussamero.RecargoActivity"
+    tools:context="com.carmware.tussamero.Info"
     android:id="@+id/fondo">
 
 
@@ -22,12 +22,15 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Versión:"
-        android:id="@+id/version"
-        android:layout_below="@+id/desarrollador"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/t.desarrollador"
+        android:layout_alignBaseline="@+id/desarrollador"
+        android:layout_alignBottom="@+id/desarrollador"
+        android:layout_toRightOf="@+id/desarrollador"
+        android:layout_toEndOf="@+id/desarrollador"
+        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -35,29 +38,9 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Descripción:"
         android:id="@+id/descripcion"
-        android:layout_below="@+id/version"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
-        android:id="@+id/t.desarrollador"
-        android:layout_above="@+id/version"
-        android:layout_toRightOf="@+id/desarrollador"
-        android:layout_toEndOf="@+id/desarrollador" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
-        android:id="@+id/t.version"
-        android:layout_above="@+id/descripcion"
-        android:layout_toRightOf="@+id/version"
-        android:layout_toEndOf="@+id/version" />
+        android:layout_marginTop="97dp"
+        android:layout_below="@+id/desarrollador"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -65,8 +48,11 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Medium Text"
         android:id="@+id/t.descripcion"
-        android:layout_below="@+id/t.version"
-        android:layout_toRightOf="@+id/descripcion"
-        android:layout_toEndOf="@+id/descripcion" />
+        android:layout_marginBottom="83dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/desarrollador"
+        android:layout_toEndOf="@+id/desarrollador"
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp" />
 
 </RelativeLayout>

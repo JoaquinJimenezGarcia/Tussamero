@@ -1,6 +1,7 @@
 package com.carmware.tussamero;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -16,7 +17,7 @@ public class MainActivity extends FragmentActivity {
     private EditText editText;
     private TextView saldo;
     public static final double PRECIO_VIAJE = 0.70;
-    public static double SALDO = 10.0;
+    public static double saldoFinal, saldoIntroducido, valorSaldo;
 
 
     @Override
@@ -32,11 +33,19 @@ public class MainActivity extends FragmentActivity {
 
         CargarDatos();
 
+        bInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent Info = new Intent(getApplicationContext(), Info.class);
+                startActivity(Info);
+            }
+        });
+
         bViaje.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                double saldoFinal = SALDO - PRECIO_VIAJE;
-                SALDO = saldoFinal;
+                CargarDatos();
+                saldoFinal = Double.parseDouble(saldo.getText().toString()) - PRECIO_VIAJE;
                 saldo.setText(String.format("%.2f", saldoFinal));
                 GuardarDatos();
             }
@@ -45,9 +54,12 @@ public class MainActivity extends FragmentActivity {
         bRecarga.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                double saldoIntroducido = Double.parseDouble(editText.getText().toString());
-                SALDO = SALDO + saldoIntroducido;
-                saldo.setText(String.format("%.2f", SALDO));
+                CargarDatos();
+                valorSaldo = Double.parseDouble(saldo.getText().toString());
+                saldoFinal = valorSaldo;
+                saldoIntroducido = Double.parseDouble(editText.getText().toString());
+                saldoFinal = saldoFinal + saldoIntroducido;
+                saldo.setText(String.format("%.2f", saldoFinal));
                 editText.setText("");
                 GuardarDatos();
             }

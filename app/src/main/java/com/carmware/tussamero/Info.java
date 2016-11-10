@@ -1,20 +1,13 @@
 package com.carmware.tussamero;
 
 
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.app.Activity;
-import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 
-/**
- * ghghghghgh
- */
-public class RecargoActivity extends Activity {
+public class Info extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +16,6 @@ public class RecargoActivity extends Activity {
 
         final TextView desarrollador = (TextView) findViewById(R.id.t_desarrollador);
             desarrollador.setText("Joaquín Jiménez");
-        final TextView version = (TextView) findViewById(R.id.t_version);
-            version.setText("1.0.0");
         final TextView descripcion = (TextView) findViewById(R.id.t_descripcion);
             descripcion.setText("Esta aplicación actúa de modo de contador; es decir, le pone un contador con el valor del viaje sobre tu saldo total. No actualiza tu saldo por si solo.");
     }

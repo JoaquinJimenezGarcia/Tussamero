@@ -18,7 +18,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".RecargoActivity"
+            android:name=".Info"
             android:label="@string/title_activity_recargo"
             android:screenOrientation="portrait">
         </activity>
