@@ -1,4 +1,4 @@
-package com.carmware.tussamero;
+package com.joaquinjimenez.tussamero;
 
 import android.content.Context;
 import android.content.Intent;
