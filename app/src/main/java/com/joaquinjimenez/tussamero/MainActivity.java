@@ -17,7 +17,7 @@ public class MainActivity extends FragmentActivity {
     private EditText editText;
     private TextView saldo;
     public static final double PRECIO_VIAJE = 0.70;
-    public static double saldoFinal, saldoIntroducido, valorSaldo;
+    public static double saldoFinal = 0, saldoIntroducido, valorSaldo;
 
 
     @Override
@@ -44,31 +44,40 @@ public class MainActivity extends FragmentActivity {
         bViaje.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CargarDatos();
-                saldoFinal = Double.parseDouble(saldo.getText().toString()) - PRECIO_VIAJE;
-                saldo.setText(String.format("%.2f", saldoFinal));
-                GuardarDatos();
+                //CargarDatos();
+                if(!saldo.getText().equals("")) {
+                    saldoFinal = Double.parseDouble(saldo.getText().toString()) - PRECIO_VIAJE;
+                    saldo.setText(String.format("%.2f", saldoFinal));
+                    GuardarDatos();
+                }
             }
         });
 
         bRecarga.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CargarDatos();
-                valorSaldo = Double.parseDouble(saldo.getText().toString());
-                saldoFinal = valorSaldo;
-                saldoIntroducido = Double.parseDouble(editText.getText().toString());
-                saldoFinal = saldoFinal + saldoIntroducido;
-                saldo.setText(String.format("%.2f", saldoFinal));
-                editText.setText("");
-                GuardarDatos();
+                //CargarDatos();
+                if (!saldo.getText().equals("")) {
+                    valorSaldo = Double.parseDouble(saldo.getText().toString());
+                    saldoFinal = valorSaldo;
+                    saldoIntroducido = Double.parseDouble(editText.getText().toString());
+                    saldoFinal = saldoFinal + saldoIntroducido;
+                    saldo.setText(String.format("%.2f", saldoFinal));
+                    editText.setText("");
+                    GuardarDatos();
+                }
             }
         });
     }
 
     public void CargarDatos(){
         SharedPreferences datos = getSharedPreferences("DatosGuardados", Context.MODE_PRIVATE);
-        saldo.setText(datos.getString("nombre", ""));
+
+        if(datos.getString("nombre", "") == null || datos.getString("nombre", "").equals("")){
+            saldo.setText("0");
+        }else {
+            saldo.setText(datos.getString("nombre", ""));
+        }
     }
 
     public void GuardarDatos(){
